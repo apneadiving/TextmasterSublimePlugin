@@ -62,6 +62,7 @@ class TextmasterFrameworkCommand(sublime_plugin.TextCommand):
 
     #Open the file?
     if (self.open_controller == True):
+      self.view.window().open_file(view_path)
       self.view.window().open_file(controller_path)
 
 

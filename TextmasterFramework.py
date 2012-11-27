@@ -61,9 +61,11 @@ class TextmasterFrameworkCommand(sublime_plugin.TextCommand):
         f.write(self.base_view_content())
 
     initial_window = self.view.window()
-    initial_window.open_file(base_coffee,     1)
+    base_view = initial_window.open_file(base_coffee,     1)
     initial_window.open_file(controller_path, 1)
     initial_window.open_file(view_path,       1)
+
+    self.view.window().focus_view(base_view)
 
 
   def find_root_path(self, path, index):

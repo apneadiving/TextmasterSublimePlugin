@@ -6,8 +6,7 @@
 
 **OSX:**
 
- * `CTRL+J` - Create JS Framework files
- * `SHIFT+CTRL+J` - Create JS Framework files
+`CTRL+J` - Create JS Framework files
 
 Type `client_area/index` and which creates `app/assets/javascripts/src/pages/client_area/index` with two files:
 
@@ -40,8 +39,13 @@ class module.View extends Framework.View
 ## Installation
 
 ### Git
+Sublime Text 2 stores nearly all of the interesting files for users under the data directory. This is a platform-dependent location:
+
+ * Windows: %APPDATA%\Sublime Text 2\Packages
+ * OS X: ~/Library/Application Support/Sublime Text 2/Packages
+ * Linux: ~/.Sublime Text 2/Packages
 
 This method required a little more work, but simply clone this repo into your Sublime Text 2 Package directory.
 
-    $ git clone git@github.com:apneadiving/TexmasterFramework.git
+    $ git clone git@github.com:apneadiving/TextmasterSublimePlugin.git
 

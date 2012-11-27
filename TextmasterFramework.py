@@ -1,6 +1,5 @@
-# Rails Partial - Sublime Text 2 Plugin
-# Created by Wes Foster (wesf90)
-# https://github.com/wesf90/rails-partial
+# Inspiration taken from https://github.com/wesf90/rails-partial
+# Thanks!
 
 import os
 import sublime, sublime_plugin
@@ -11,7 +10,6 @@ class TextmasterFrameworkCommand(sublime_plugin.TextCommand):
 
   def run(self, edit):
     self.edit            = edit
-    self.open_controller = True
     self.view.window().show_input_panel("New Controller and View Path (ex: client_area/index )", "", self.trigger, None, None)
 
   def trigger(self, user_entry):
@@ -27,7 +25,7 @@ class TextmasterFrameworkCommand(sublime_plugin.TextCommand):
     else:
       self.module_path_list = user_entry.split('/')
 
-    os.chdir(self.js_base_path())
+    os.chdir(self.js_pages_path())
     self.create_js_module_arbo(self.module_path_list)
     self.display_message("Success")
 
@@ -44,6 +42,8 @@ class TextmasterFrameworkCommand(sublime_plugin.TextCommand):
   def create_files(self):
     controller_path = os.path.join(os.getcwd() , "controller.coffee")
     view_path       = os.path.join(os.getcwd() , "view.coffee")
+    base_coffee     = os.path.join(self.js_src_path(), "base.coffee")
+
     if os.path.isfile(controller_path):
       #file exists
       self.display_message("Controller already exists")
@@ -60,17 +60,16 @@ class TextmasterFrameworkCommand(sublime_plugin.TextCommand):
       with open(view_path, 'w') as f:
         f.write(self.base_view_content())
 
-    #Open the file?
-    if (self.open_controller == True):
-      self.view.window().open_file(view_path)
-      self.view.window().open_file(controller_path)
-
+    initial_window = self.view.window()
+    initial_window.open_file(view_path,       1)
+    initial_window.open_file(controller_path, 1)
+    initial_window.open_file(base_coffee,     1)
 
   def find_root_path(self, path, index):
     #convention: root_path contains Gemfile
     #avoid infinite recursion
     if index == 20:
-      #self.display_message("Unable to find root path")
+      # self.display_message("Unable to find root path")
       return
 
     if os.path.isfile(os.path.join(path ,"Gemfile")):
@@ -97,7 +96,7 @@ class module.View extends Framework.View
   @options {
     selectors:
       your_selector:
-}"""
+  }"""
 
   def camelized_module_name(self):
     camelized_list = [self.lower_case_underscore_to_camel_case(name) for name in self.module_path_list]
@@ -107,8 +106,11 @@ class module.View extends Framework.View
     class_ = string.__class__
     return str.join('.', map(class_.capitalize, string.split('_')))
 
-  def js_base_path(self):
-    return os.path.join(self.root_path, "app", "assets", "javascripts", "src", "pages")
+  def js_src_path(self):
+    return os.path.join(self.root_path, "app", "assets", "javascripts", "src")
+
+  def js_pages_path(self):
+    return os.path.join(self.js_src_path(), "pages")
 
   def display_message(self, value):
     sublime.active_window().active_view().set_status("textmaster_framework_msg", value)

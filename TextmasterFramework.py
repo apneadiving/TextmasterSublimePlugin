@@ -65,7 +65,7 @@ class TextmasterFrameworkCommand(sublime_plugin.TextCommand):
     initial_window.open_file(controller_path, 1)
     initial_window.open_file(view_path,       1)
 
-    self.view.window().focus_view(base_view)
+    initial_window.focus_view(base_view)
 
 
   def find_root_path(self, path, index):

@@ -8,11 +8,10 @@ import sublime, sublime_plugin
 class TextmasterFrameworkCommand(sublime_plugin.TextCommand):
   root_path    = ""
   module_path_list = None
-  open_controller  = False
 
-  def run(self, edit, open_controller = False):
+  def run(self, edit):
     self.edit            = edit
-    self.open_controller = open_controller
+    self.open_controller = True
     self.view.window().show_input_panel("New Controller and View Path (ex: client_area/index )", "", self.trigger, None, None)
 
   def trigger(self, user_entry):

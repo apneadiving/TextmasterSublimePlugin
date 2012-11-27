@@ -1,11 +1,6 @@
 [
   {
-    "caption": "Framework JS: Create Controller and view",
-    "command": "textmaster_framework"
-  },
-  {
   "caption": "Framework JS: Create Controller and view and Open",
-  "command": "textmaster_framework",
-  "args": {"open_controller": true}
+  "command": "textmaster_framework"
   }
 ]

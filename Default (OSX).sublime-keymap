@@ -1,0 +1,4 @@
+[
+  { "keys": ["ctrl+j"], "command": "textmaster_framework"},
+  { "keys": ["ctrl+j"], "command": "textmaster_framework", "args": {"open_controller": true}}
+]

@@ -13,7 +13,7 @@ Type `client_area/index` and which creates `app/assets/javascripts/src/pages/cli
 
 `controller.coffee`
 
-:::coffeescript
+```coffeescript
 #= require './view'
 module = Textmaster.Client.Area.Index
 
@@ -23,10 +23,11 @@ class module.Controller extends Framework.Controller
      events:
        'event_name': { el: 'elt_name', type: 'click' }
  }
+```
 
 `view.coffee`
 
-:::coffeescript
+```coffeescript
 module = Textmaster.Client.Area.Index
 
 class module.View extends Framework.View
@@ -34,7 +35,7 @@ class module.View extends Framework.View
    selectors:
      your_selector:
 }
-
+```
 
 ## Installation
 

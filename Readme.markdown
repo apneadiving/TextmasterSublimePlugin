@@ -11,7 +11,7 @@
 
 Type `client_area/index` and which creates `app/assets/javascripts/src/pages/client_area/index` with two files:
 
-#controller.coffee
+`controller.coffee`
 
 :::coffeescript
 #= require './view'
@@ -24,7 +24,7 @@ class module.Controller extends Framework.Controller
        'event_name': { el: 'elt_name', type: 'click' }
  }
 
-#view.coffee
+`view.coffee`
 
 :::coffeescript
 module = Textmaster.Client.Area.Index

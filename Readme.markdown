@@ -14,13 +14,13 @@ Type `client_area/index` and which creates `app/assets/javascripts/src/pages/cli
 
 ```coffeescript
 #= require './view'
-module = Textmaster.Client.Area.Index
+module = Textmaster.ClientArea.Index
 
 class module.Controller extends Framework.Controller
- @options {
-   View: module.View
-     events:
-       'event_name': { el: 'elt_name', type: 'click' }
+  @options {
+    View: module.View
+    events:
+      'event_name': { el: 'elt_name', type: 'click' }
  }
 ```
 
@@ -30,10 +30,10 @@ class module.Controller extends Framework.Controller
 module = Textmaster.Client.Area.Index
 
 class module.View extends Framework.View
- @options {
-   selectors:
-     your_selector:
-}
+  @options {
+    selectors:
+      your_selector:
+  }
 ```
 
 ## Installation

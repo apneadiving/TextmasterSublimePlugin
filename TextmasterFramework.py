@@ -88,8 +88,8 @@ module = """ + self.camelized_module_name() + """
 class module.Controller extends Framework.Controller
   @options {
     View: module.View
-      events:
-        'event_name': { el: 'elt_name', type: 'click' }
+    events:
+      'event_name': { el: 'elt_name', type: 'click' }
   }"""
 
   def base_view_content(self):
@@ -107,7 +107,7 @@ class module.View extends Framework.View
 
   def lower_case_underscore_to_camel_case(self, string):
     class_ = string.__class__
-    return str.join('.', map(class_.capitalize, string.split('_')))
+    return str.join('', map(class_.capitalize, string.split('_')))
 
   def js_src_path(self):
     return os.path.join(self.root_path, "app", "assets", "javascripts", "src")
@@ -117,6 +117,4 @@ class module.View extends Framework.View
 
   def display_message(self, value):
     sublime.active_window().active_view().set_status("textmaster_framework_msg", value)
-
-
 

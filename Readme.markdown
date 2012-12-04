@@ -42,7 +42,7 @@ class module.View extends Framework.View
 Sublime Text 2 stores nearly all of the interesting files for users under the data directory. This is a platform-dependent location:
 
  * Windows: %APPDATA%\Sublime Text 2\Packages
- * OS X: ~/Library/Application Support/Sublime Text 2/Packages
+ * OS X: ~/Library/Application Support/Sublime Text 2/Packages (~/Library/Application\ Support/Sublime\ Text\ 2/Packages)
  * Linux: ~/.Sublime Text 2/Packages
 
 This method required a little more work, but simply clone this repo into your Sublime Text 2 Package directory.

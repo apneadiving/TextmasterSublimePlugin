@@ -103,7 +103,7 @@ class module.View extends Framework.View
 
   def camelized_module_name(self):
     camelized_list = [self.lower_case_underscore_to_camel_case(name) for name in self.module_path_list]
-    return "Textmaster." + ".".join(camelized_list)
+    return "TextMaster." + ".".join(camelized_list)
 
   def lower_case_underscore_to_camel_case(self, string):
     class_ = string.__class__

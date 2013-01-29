@@ -1,0 +1,6 @@
+<snippet>
+    <content><![CDATA[expect(${1:real_value}).to eq ${2:expected_value}]]></content>
+    <tabTrigger>exp</tabTrigger>
+    <scope>source.ruby</scope>
+    <description>expect(real_value).to eq expected_value</description>
+</snippet>

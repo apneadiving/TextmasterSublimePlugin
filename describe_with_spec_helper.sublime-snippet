@@ -1,0 +1,12 @@
+<snippet>
+  <content><![CDATA[require 'spec_helper'
+
+describe ${1:name} do
+
+  $0
+
+end]]></content>
+  <tabTrigger>desc</tabTrigger>
+  <scope>source.ruby.rspec</scope>
+  <description>describe with spec_helper</description>
+</snippet>
